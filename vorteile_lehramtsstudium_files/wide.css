@@ -1,0 +1,359 @@
+/* CSS rules for [media="(min-width: 601px)"], includes @media(min-width: 801px), @media(min-width: 900px) */
+
+/*
+ * Next layout, 600+:
+ * Function bar changes, site navigation expanded in left column
+ */
+
+
+.belt {
+	margin: 0 auto;
+	max-width: 1150px;
+	width: 96%;
+}
+
+#normal, #sidebar {
+	margin: 0;
+	width: auto;
+}
+
+#page-body {
+	clear: both; /* prüfen, ob das weg kann*/
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #e5e5e5; /* Header separator line */
+}
+
+#page-body .org { display: none; }
+
+header .org { display: block; }
+
+#sitenav,
+body.cols-both #sidebar,
+body.cols-normal #content {
+	margin-bottom: 6em;
+}
+/* Col 1 */
+#sitenav {
+	float: left;
+	width: 180px;
+}
+
+/* Col 2 */
+#normal,
+#sidebar {
+	margin-left: 200px;
+}
+
+#content {
+	float: left;
+	width: 100%;
+	margin-bottom: 2em;
+}
+
+#pusher {
+	display: block;
+	visibility: hidden;
+	speak: none;
+}
+
+/* Footer */
+footer {
+	clear: both;
+}
+
+.tumfooter .more.links {background-color: #f7f7f7;}
+
+	/* Sticky footer [
+html.flexbox body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+html.flexbox #page-body { flex: 1 0 0%; }
+
+html.flexbox footer { margin-top: 0; }
+*/	/* ] */
+
+
+/*
+ * Function bar
+ */
+.fubar {
+	background-color: #f7f7f7;
+	min-height: 42px;
+}
+.fubar a,
+.fubar strong,
+.language {
+	color: #7f7f7f;
+}
+
+/* Audience navigation */
+.audience ul { margin-top: 0; }
+.audience li {
+	display: inline-block;
+	margin-bottom: 0;
+	margin-right: .5em;
+	padding-right: .5em;
+	padding-left: 0;
+	border-right: solid 1px #808080;
+}
+.audience li:last-child { border-right: none; padding-right: 0; }
+
+.audience a { color: #666; }
+
+/* Search box */
+#cse-box, .language {
+ float: right;
+ margin-left: 2em;
+ margin-right: 0;
+}
+#cse_sbgray { display: inline-block; }
+#cse_sbblue { display: none; }
+
+#menutoggle { display: none; }
+
+/* Drop-down menu (re-useable part) */
+.dropdown ul {
+	position: relative;
+	width: 10em;
+	margin: 0;
+	padding: 0 1em 0 0;
+	list-style: none;
+}
+.dropdown ul li {
+	display: inline-block;
+	width: 10em;
+	padding: 0;
+	margin-bottom: .2em;
+	text-align: right;
+}
+
+.dropdown span {
+	padding-right: 16px;
+	margin-right: 0;
+	background: url(/fileadmin/tum/icons/arrow_down.png) no-repeat right 3px transparent;
+}
+.dropdown a {
+	display: block;
+	padding: 0;
+}
+.dropdown ul ul li {
+	background-image: none;
+	padding-right: 0;
+}
+
+.dropdown ul ul {
+	display: none;
+	position: absolute;
+	top: 16px;
+	left: 0;
+	z-index: 10000;
+	border: 1px outset #666;
+}
+
+.dropdown ul li:hover > ul {
+	display:inherit;
+}
+html.boxshadow .dropdown ul ul {
+	border: none;
+	box-shadow: #222 1px 1px 3px;
+}
+
+.dropdown ul ul li {
+	display: list-item;
+	width: 100%;
+	position: relative;
+	float: none;
+}
+
+/* Quicklinks */
+.quicklinks {
+	display: block;
+	float: right;
+	cursor: default;
+}
+
+.fubar .quicklinks ul {
+	background-color: #F7F7F7;
+}
+
+.fubar .quicklinks a,
+.fubar .quicklinks span {
+	text-transform: none;
+	font-weight: normal;
+	color: #7f7f7f;
+}
+
+/* Site menu */
+
+.sitemenu { font-size: .93em;}
+
+	/* L1-3: bg-color */
+.sitemenu ul { background-color: #e6e6e6;  padding-bottom: 6.5px; }
+.sitemenu ul ul { background-color: #f7f7f7;  padding-bottom: 0;}
+.sitemenu ul ul ul { background-color: #fff; }
+
+	/* L4-5: indent */
+.sitemenu ul ul ul ul li { padding-left: 7px; }
+
+.sitemenu ul li a      { padding: .5em 24px .5em 13px; }
+.sitemenu ul li strong { padding: .5em 24px .5em 10px; } /* 13px - border-width */
+
+	/* In path: bold */
+.sitemenu li.path > a { font-weight: bold; }
+
+
+.sitemenu li.sub,
+.sitemenu li.path,
+.sitemenu li.hassub.current { background-position: right .85em; }
+.subx { display: none; }
+
+.sitemenu a.external, .sitemenu a.external:hover {
+	background-image: url(icons/nav-external.png);
+}
+
+/*
+ * Next layout, 800+:
+ * Sidebar to the right, text/image columns side by side for Text/Image CEs, 2-column content active
+ */
+
+@media (min-width: 801px) {
+
+	body.cols-both #normal {
+		margin-right: 230px; /* sidebar.width + space between center and right */
+	}
+
+	/* Sidebar (right) */
+	#sidebar {
+		float: right;
+		width: 210px;
+		margin-left: 0;
+		margin-bottom: 6em;
+		padding: 0;
+	}
+
+	#content {
+		margin-bottom: 6em;
+	}
+	#pusher { display: none; }
+
+	aside > div {
+		padding: 1em 15px 1em 15px;
+		background-color: #f7f7f7;
+		border: none;
+		margin-bottom: 3px;
+	}
+
+	#sidebar a:hover { border-bottom-width: 2px; }
+
+
+	/* Accordion in sidebar */
+	.js aside > div.accordion { padding-top: 1em; }
+
+	.js .side h2.cordi {
+		padding: 0 18px 0 0;
+		background-position: right 0 center;
+	}
+
+	.js .side .accordion .expandable { padding: 1em 0 0; }
+
+
+	/* Content columns: two, with or without box */
+	.cols-1 { clear: both; }
+
+	.cols-2 {
+		float: left;
+		width: 48%;
+		margin-top: 0.3em;
+		margin-bottom: 0.3em;
+	}
+
+	.cols-2.box { width: 44.4%; }
+
+	.cols-2.cols-left { float: left; }
+
+	.cols-2.cols-right { float: right; }
+
+	/* Images */
+
+	/* DEFAULT CSS */
+		/* Left (in text) */
+		div.csc-textpic-intext-left .csc-textpic-imagewrap { float: left; }
+
+		/* Right (in text) */
+		div.csc-textpic-intext-right .csc-textpic-imagewrap { float: right; }
+
+		/* Right (in text, no wrap around) */
+		div.csc-textpic-intext-right-nowrap .csc-textpic-imagewrap { float: right; }
+
+		/* Left (in text, no wrap around) */
+		div.csc-textpic-intext-left-nowrap .csc-textpic-imagewrap { float: left; }
+
+		/* Add margin from image-block to text (in case of "Text & Images") */
+		div.csc-textpic-intext-left .csc-textpic-imagewrap, div.csc-textpic-intext-left-nowrap .csc-textpic-imagewrap { margin-right: 10px; }
+		div.csc-textpic-intext-right .csc-textpic-imagewrap, div.csc-textpic-intext-right-nowrap .csc-textpic-imagewrap { margin-left: 10px; }
+
+	/* end */
+
+	/* Makes fake columns shrink ("in text" or "beside text") */
+	.csc-textpic-intext-right        .csc-textpic-imagewrap,
+	.csc-textpic-intext-left         .csc-textpic-imagewrap,
+	.csc-textpic-intext-right-nowrap .csc-textpic-imagewrap,
+	.csc-textpic-intext-left-nowrap  .csc-textpic-imagewrap
+	 { max-width: 50%; }
+
+
+	.csc-textpic-intext-right        .csc-textpic-text,
+	.csc-textpic-intext-left         .csc-textpic-text
+	 { min-width: 50%; }
+
+	.csc-textpic-intext-right-nowrap .csc-textpic-text,
+	.csc-textpic-intext-left-nowrap .csc-textpic-text
+	 { display: table-cell; }
+
+	/* Fit 5-8 columns in the container (1-4 in basic.css) */
+	.csc-textpic-imagewrap[data-csc-cols='5'] .csc-textpic-imagecolumn { width:  18.5%; }
+	.csc-textpic-imagewrap[data-csc-cols='6'] .csc-textpic-imagecolumn { width:  15.2%; }
+	.csc-textpic-imagewrap[data-csc-cols='7'] .csc-textpic-imagecolumn { width:  12.8%; }
+	.csc-textpic-imagewrap[data-csc-cols='8'] .csc-textpic-imagecolumn { width:  11.0%; }
+
+	/* Site footer */
+	ul.siteinfo li {
+		margin: 0 3em 0 0 ;
+	}
+
+
+}
+
+/*
+ * Next layout, 900+:
+ * Activate 3-column content, increase some font sizes
+ */
+@media (min-width: 900px) {
+
+	/* Content columns: three, with or without box */
+	.cols-3 {
+		width: 32%;
+		float: left;
+		margin-top: .3em;
+		margin-bottom: .3em;
+	}
+
+	.cols-3.cols-left { margin-right: 2%; }
+
+	.cols-3.cols-right { float: right; }
+
+	.cols-3.box { width: 27.8%; }
+
+	.cols-3.box.cols-center { position: relative; right: 3px; /* Compensation: margin-width x 3 */ }
+
+	/* Increase some font sizes */
+	.tumfooter  { font-size: 100%; }
+
+	.tumfooter span.pagetitle a { font-size: 115%; }
+
+	.navi ul.level_2 > li { font-size: 100%; }
+}
