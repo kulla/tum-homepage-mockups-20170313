@@ -1,0 +1,10 @@
+# This is an Ansible playbook to install all necessary tools for
+# this project (cf. http://docs.ansible.com/ansible/index.html )
+---
+- hosts: localhost
+  tasks:
+    - name: Install necessary tools
+      package: name={{ item }} state=present
+      with_items:
+        - tidy
+        - rsync
