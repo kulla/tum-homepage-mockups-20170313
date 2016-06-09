@@ -1,6 +1,6 @@
 .PHONY: upload
 upload:
-	scp -r *_files *html edu:~/kulla/homepage-mockups
+	rsync -vr --delete html/ edu:~/kulla/homepage-mockups/
 
 .PHONY: tidy
 tidy:
