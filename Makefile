@@ -4,4 +4,4 @@ upload:
 
 .PHONY: tidy
 tidy:
-	tidy -config tidy.conf -m -utf8 *html
+	tidy -config tidy.conf -m -utf8 html/*html
